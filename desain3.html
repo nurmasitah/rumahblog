@@ -1,0 +1,269 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Contemporary Tropical — Modern Living Hub</title>
+  <style>
+    :root{
+      --bg:#f4f7f6;
+      --card:#ffffff;
+      --muted:#556068;
+      --accent:#f39c12;
+      --primary:#1f3a46;
+      --max-width:850px;
+      --radius:14px;
+      --shadow: 0 10px 30px rgba(31,58,70,0.08);
+      --text-size:14.5px;
+      font-family: 'Segoe UI', Roboto, Arial, sans-serif;
+    }
+
+    html,body{height:100%}
+    body{
+      margin:0;
+      background:var(--bg);
+      color:#132027;
+      display:flex;
+      justify-content:center;
+      align-items:flex-start;
+      padding:24px 12px;
+      box-sizing:border-box;
+      -webkit-font-smoothing:antialiased;
+      line-height:1.5; /* Spasi antar baris teks lebih rapat dan rapi */
+      font-size:var(--text-size);
+    }
+
+    .wrap{
+      width:100%;
+      max-width:var(--max-width);
+    }
+
+    /* Topbar Modern */
+    .topbar{
+      background:var(--primary);
+      color:#ffffff;
+      padding:10px 18px;
+      border-radius:10px;
+      text-align:center;
+      font-weight:600;
+      font-size:13px;
+      letter-spacing: 1.2px;
+      margin-bottom:16px;
+      box-shadow: var(--shadow);
+      text-transform: uppercase;
+    }
+
+    /* Card Utama */
+    .card{
+      background:var(--card);
+      border-radius: var(--radius);
+      padding:28px;
+      box-shadow: var(--shadow);
+      box-sizing:border-box;
+      border: 1px solid rgba(0,0,0,0.04);
+    }
+
+    /* Header & Tombol Kembali */
+    .card-head{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      margin-bottom:24px;
+      border-bottom: 2px solid #f0f2f5;
+      padding-bottom: 16px;
+    }
+    
+    .back-btn{
+      display:inline-flex;
+      align-items:center;
+      gap:6px;
+      padding:8px 16px;
+      border-radius:8px;
+      cursor:pointer;
+      user-select:none;
+      font-size:14px;
+      font-weight: 600;
+      color:var(--primary);
+      background:#f8f9fa;
+      border:1px solid #dcdde1;
+      text-decoration: none;
+      transition: all 0.25s ease;
+    }
+    .back-btn:hover {
+      background:var(--primary);
+      color:#fff;
+      border-color: var(--primary);
+      transform: translateX(-4px);
+    }
+
+    .title{
+      flex:1;
+      text-align:center;
+      font-weight:700;
+      font-size:22px;
+      color:var(--primary);
+      margin: 0;
+      letter-spacing: -0.5px;
+    }
+
+    .spacer{ width:90px; }
+
+    /* Grid Layout Detail */
+    .detail-grid{
+      display:grid;
+      grid-template-columns: 260px 1fr;
+      gap:24px;
+      align-items:start;
+    }
+
+    /* Kotak Teks Deskripsi (Dibuat rapat dan rapi tanpa paragraf renggang) */
+    .side-text{
+      background:#f8f9fa;
+      padding:16px;
+      border-radius:10px;
+      border:1px solid #edf2f7;
+      box-sizing: border-box;
+    }
+    .side-text h2{ 
+      margin:0 0 8px 0; 
+      font-size:17px; 
+      color:var(--primary); 
+    }
+    .side-text p{ 
+      margin:0; 
+      color:var(--muted); 
+      font-size:13.5px; 
+      line-height:1.55; 
+      text-align:justify; 
+    }
+
+    /* Kolom Foto */
+    .images-col{
+      display:flex;
+      flex-direction: column;
+      gap:12px;
+    }
+
+    .main-photo{
+      width:100%;
+      height:260px;
+      object-fit:cover;
+      border-radius:12px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+      border:1px solid rgba(0,0,0,0.05);
+      display:block;
+    }
+
+    .thumb-row{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:12px;
+    }
+    .thumb-row img{
+      width:100%;
+      height:100px;
+      object-fit:cover;
+      border-radius:8px;
+      cursor:pointer;
+      transition:all .2s ease;
+      border:2px solid transparent;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    }
+
+    /* Galeri Kecil Bawah */
+    .gallery{
+      margin-top:16px;
+      display:grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap:12px;
+    }
+    .gallery img{
+      width:100%;
+      height:90px;
+      object-fit:cover;
+      border-radius:8px;
+      cursor:pointer;
+      border:2px solid transparent;
+      transition:all .2s ease;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    }
+
+    img:hover, img.active{ 
+      transform:scale(1.02); 
+      border-color:var(--accent);
+      box-shadow: 0 6px 15px rgba(243,156,18,0.25); 
+    }
+
+    /* Responsif untuk Mobile */
+    @media (max-width:768px){
+      body { padding: 12px 8px; }
+      .card { padding: 16px; }
+      .detail-grid{ grid-template-columns:1fr; gap:16px; }
+      .main-photo{ height:200px; }
+      .spacer{ display:none; }
+      .title{ font-size:18px; text-align: left; }
+      .card-head { flex-direction: row-reverse; justify-content: space-between; margin-bottom: 16px; padding-bottom: 12px; }
+      .gallery { grid-template-columns: repeat(2, 1fr); }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="topbar" aria-hidden="true">Modern Living Hub — Interior Showcase</div>
+
+    <main class="card" role="main" aria-label="Desain detail ringkas">
+      <div class="card-head">
+        <a href="web.html#ide" class="back-btn">← Kembali</a>
+        <div class="title">Contemporary Tropical</div>
+        <div class="spacer" aria-hidden="true"></div>
+      </div>
+
+      <div class="detail-grid">
+        <!-- Bagian Teks: Rapat, rapi, dan tersusun padat -->
+        <aside class="side-text" aria-label="Deskripsi">
+          <h2>Contemporary Tropical</h2>
+          <p>Contemporary Tropical adalah perpaduan sempurna antara arsitektur modern dan nuansa tropis yang hangat. Gaya ini menghadirkan hunian yang terbuka, sejuk, dan menyatu dengan alam, sambil tetap mempertahankan estetika kontemporer yang bersih dan fungsional.</p>
+        </aside>
+
+        <!-- Bagian Foto Tersusun Rapi -->
+        <section class="images-col" aria-label="Galeri gambar">
+          <img id="mainImg" class="main-photo" src="img/I3.jpeg" alt="Ruang utama kontemporer tropis" loading="lazy">
+
+          <div class="thumb-row" role="list" aria-label="Thumbnail">
+            <img src="img/cnt1.png" alt="Detail 1" loading="lazy" tabindex="0" onclick="swapWithMain(this)">
+            <img src="img/cnt2.png" alt="Detail 2" loading="lazy" tabindex="0" onclick="swapWithMain(this)">
+          </div>
+        </section>
+      </div>
+
+      <div class="gallery" aria-label="Galeri kecil">
+        <img src="img/cnt3.png" alt="Sudut 3" loading="lazy" tabindex="0" onclick="swapWithMain(this)">
+        <img src="img/cnt4.png" alt="Sudut 4" loading="lazy" tabindex="0" onclick="swapWithMain(this)">
+        <img src="img/cnt5.png" alt="Sudut 5" loading="lazy" tabindex="0" onclick="swapWithMain(this)">
+        <img src="img/cnt6.png" alt="Sudut 6" loading="lazy" tabindex="0" onclick="swapWithMain(this)">
+      </div>
+    </main>
+  </div>
+
+  <script>
+    function swapWithMain(img){
+      const main = document.getElementById('mainImg');
+      if(!img || !main) return;
+      if(img.src === main.src) return;
+
+      const tmp = main.src;
+      main.src = img.src;
+      img.src = tmp;
+
+      document.querySelectorAll('.thumb-row img, .gallery img').forEach(i => i.classList.remove('active'));
+      img.classList.add('active');
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const first = document.querySelector('.thumb-row img');
+      if(first) first.classList.add('active');
+    });
+  </script>
+</body>
+</html>
